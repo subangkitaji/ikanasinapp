@@ -1,0 +1,73 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* navbar */
+.navbar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    height: 75px;
+}
+
+.navbar-inner {
+    background: transparent;
+}
+
+.nav-item {
+    margin-right: 50px;
+    font-weight: 600;
+}
+
+
+
+/* end of navbar */
+
+
+/* jumbotron */
+.jumbotron {
+    background-image: url('../img/bg.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    height: 570px;
+    width: 100%;
+
+}
+
+.jumbotron h1 {
+    margin-bottom: 10px;
+    color: white;
+
+}
+
+.jumbotron p {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.jumbotron hr {
+    width: 70px;
+    color: black;
+
+}
+
+/* end of jumbotron */
+
+/* font awesome */
+.fa-arrow-circle-down {
+    color: #f5f6fa;
+}
+
+/* end of font awesome */
+
+/* section */
+section {
+    min-height: 500px;
+    margin-top: 50px;
+}
+
+#about {
+    font-size: 18px;
+}
