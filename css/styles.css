@@ -2,23 +2,31 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* navbar */
-.navbar {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+@media (min-width: 992px) {
 
-    height: 75px;
+    /* navbar */
+    .navbar {
+        height: 75px;
+    }
+
+    .navbar-inner {
+        background: transparent;
+    }
+
+    .nav-item {
+        margin-right: 50px;
+        font-weight: 600;
+    }
+
+
 }
 
-.navbar-inner {
-    background: transparent;
+
+.my-2 .my-sm-0 {
+    background-color: #1060cf;
+    color: white;
+    font-weight: 500;
 }
-
-.nav-item {
-    margin-right: 50px;
-    font-weight: 600;
-}
-
-
 
 /* end of navbar */
 
@@ -64,10 +72,77 @@ body {
 
 /* section */
 section {
-    min-height: 500px;
-    margin-top: 50px;
+    min-height: 450px;
+    margin-top: 100px;
 }
 
 #about {
     font-size: 18px;
+}
+
+/* card */
+.card img {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: auto;
+
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-body p {
+    color: #8395a7;
+}
+
+/* features */
+#features {
+    background-color: #f8f6f6;
+}
+
+#features p {
+    color: #7f8c8d;
+}
+
+/* footer */
+footer.page-footer.font-small.blue {
+    background: linear-gradient(90deg, rgba(8, 111, 193, 1) 0%, rgba(7, 133, 192, 1) 51%, rgba(6, 151, 191, 1) 100%);
+    color: white;
+}
+
+
+/*  Tampilan di Mobile */
+@media (max-width: 768px) {
+    .nav-item {
+        text-align: center;
+        font-weight: 600;
+
+    }
+
+    .nav-item .nav-link {
+        color: white;
+    }
+
+    form.form-inline.my-2.my-lg-0 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .jumbotron p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    ul.list-group.list-group-flush {
+        margin-bottom: 20px;
+        box-shadow: -1px 7px 8px -4px rgba(97, 170, 235, 1);
+    }
+
+    .card.text-white.bg-primary.mb-3 {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
 }
