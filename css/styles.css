@@ -9,13 +9,19 @@ body {
         height: 75px;
     }
 
+    .navbar-brand {
+        font-weight: bold;
+    }
+
     .navbar-inner {
         background: transparent;
     }
 
     .nav-item {
         margin-right: 50px;
-        font-weight: 600;
+        font-weight: normal;
+        font-size: 1rem;
+        text-transform: uppercase;
     }
 
 

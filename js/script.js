@@ -1,3 +1,21 @@
+//event pada saatlink diklik
+$("a[href^='#']").click(function (e) {
+
+    e.preventDefault();
+
+    var position =
+        $($(this).attr("href")).offset().top;
+
+    $("body, html").animate({
+        scrollTop: position
+    });
+
+
+});
+
+
+
+// navbar scroll
 $(window).scroll(function () {
     var scroll = $(window).scrollTop();
     if ($(window).width() >= 1024) {
@@ -22,4 +40,22 @@ $(window).scroll(function () {
         $(".my-2 .my-sm-0").css('background-color', 'rgba(3, 199, 189, 0.5)')
     }
 
+});
+
+
+// get value
+$(window).scroll(function () {
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 670 && scroll <= 1300) {
+        $("a[href^='#about']").addClass('active');
+    } else if (scroll >= 1485 && scroll <= 2000) {
+        $("a[href^='#features']").addClass('active');
+    } else if (scroll >= 2050 && scroll <= 2400) {
+        $("a[href^='#faq']").addClass('active');
+    } else {
+        $("a[href^='#about']").removeClass('active');
+        $("a[href^='#features']").removeClass('active');
+        $("a[href^='#faq']").removeClass('active');
+    }
 });
