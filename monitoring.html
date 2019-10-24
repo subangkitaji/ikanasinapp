@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- custom style -->
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Monitoring Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="judul text-center mt-5">Halaman Monitoring</h2>
+        <hr style="width: 100px; height: 3px; color: rgb(32, 31, 31);">
+        <!-- navbar -->
+        <nav class="navbar navbar-light bg-faded justify-content-center flex-nowrap">
+            <ul class="nav navbar-nav flex-row">
+                <li class="nav-item"><a class="nav-link pr-3 pl-3" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link pr-3 pl-3" href="#">Suhu</a></li>
+                <li class="nav-item"><a class="nav-link pr-3 pl-3" href="#">Kelembapan</a></li>
+                <li class="nav-item"><a class="nav-link pr-3 pl-3" href="#">Cuaca</a></li>
+            </ul>
+        </nav>
+        <!-- end of navbar -->
+
+        <!-- Data Sensor Terbaru -->
+        <div class="row mb-5 mt-5 justify-content-center">
+            <div class="col-md-4 sm-3 xs-12 mb-5">
+                <p>Suhu Terbaru :</p>
+                <h2>25 &#8451;</h2>
+                <div class="wrimagecard wrimagecard-topimage mt-3">
+                    <a href="#">
+                        <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
+                            <center><i class="fa fa-thermometer-quarter" aria-hidden="true"></i></center>
+                        </div>
+                        <div class="wrimagecard-topimage_title">
+                            <h4>Data Dari DHT11
+                                <div class="pull-right badge">25</div>
+                            </h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 sm-3 xs-12 mb-5">
+                <p>Kelembapan Terbaru :</p>
+                <h2>60 %</h2>
+                <div class="wrimagecard wrimagecard-topimage mt-3">
+                    <a href="#">
+                        <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
+                            <center><i class="fa fa-tint" aria-hidden="true"></i></center>
+                        </div>
+                        <div class="wrimagecard-topimage_title">
+                            <h4>Data Dari DHT11
+                                <div class="pull-right badge">60 %</div>
+                            </h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 sm-3 xs-12 mb-5">
+                <p>Cuaca Terbaru :</p>
+                <h2>Hujan</h2>
+                <div class="wrimagecard wrimagecard-topimage mt-3">
+                    <a href="#">
+                        <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
+                            <center><i class="fa fa-cloud" aria-hidden="true"></i></center>
+                        </div>
+                        <div class="wrimagecard-topimage_title">
+                            <h4>Data Sensor Hujan
+                                <div class="pull-right badge">45</div>
+                            </h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- End Of Data Sensor Terbaru -->
+        <div class="row mt-5 justify-content-center">
+            <div class="col-md-6 ">
+                <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+                    src="https://thingspeak.com/channels/884462/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Suhu&type=spline"></iframe>
+            </div>
+            <div class="col-md-6">
+                <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+                    src="https://thingspeak.com/channels/884462/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Kelembapan+Dalam&type=line"></iframe>
+            </div>
+        </div>
+
+        <div class="row mb-5 justify-content-center">
+            <div class="col-md-6 ">
+                <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+                    src="https://thingspeak.com/channels/884462/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Titik+embun&type=line"></iframe>
+            </div>
+            <div class="col-md-6">
+                <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+                    src="https://thingspeak.com/channels/884462/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Kelembapan+Luar&type=line"></iframe>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
