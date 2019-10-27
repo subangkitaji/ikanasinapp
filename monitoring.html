@@ -31,8 +31,8 @@
         <!-- Data Sensor Terbaru -->
         <div class="row mb-5 mt-5 justify-content-center">
             <div class="col-md-4 sm-3 xs-12 mb-5">
-                <p>Suhu Terbaru :</p>
-                <h2>25 &#8451;</h2>
+                <p>Suhu Terbaru : </p>
+                <h2 id="data"></h2>
                 <div class="wrimagecard wrimagecard-topimage mt-3">
                     <a href="#">
                         <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
@@ -40,7 +40,7 @@
                         </div>
                         <div class="wrimagecard-topimage_title">
                             <h4>Data Dari DHT11
-                                <div class="pull-right badge">25</div>
+                                <div class="pull-right badge">temperature</div>
                             </h4>
                         </div>
                     </a>
@@ -48,8 +48,9 @@
             </div>
 
             <div class="col-md-4 sm-3 xs-12 mb-5">
-                <p>Kelembapan Terbaru :</p>
-                <h2>60 %</h2>
+                <p>Kelembapan Terbaru :</i></p>
+
+                <h2 id="data2"></h2>
                 <div class="wrimagecard wrimagecard-topimage mt-3">
                     <a href="#">
                         <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
@@ -57,7 +58,7 @@
                         </div>
                         <div class="wrimagecard-topimage_title">
                             <h4>Data Dari DHT11
-                                <div class="pull-right badge">60 %</div>
+                                <div class="pull-right badge">humidity</div>
                             </h4>
                         </div>
                     </a>
@@ -65,7 +66,7 @@
             </div>
 
             <div class="col-md-4 sm-3 xs-12 mb-5">
-                <p>Cuaca Terbaru :</p>
+                <p id="data">Cuaca Terbaru :</p>
                 <h2>Hujan</h2>
                 <div class="wrimagecard wrimagecard-topimage mt-3">
                     <a href="#">
@@ -115,6 +116,32 @@
         <!-- end of chart -->
 
     </div>
+
+
+
+    <script src="js/jquery-3.4.1.min.js">
+    </script>
+    <script src="js/popper.min.js">
+    </script>
+    <script src="js/bootstrap.js">
+    </script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: 'https://api.thingspeak.com/channels/884462/feeds.json?results=1',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
+                    let data = result.feeds;
+                    $.each(data, function (i, item) {
+                        $('#data').append(`` + item.field1 + ` &#8451;`);
+
+                        $('#data2').append(`` + item.field2 + ` %`);
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

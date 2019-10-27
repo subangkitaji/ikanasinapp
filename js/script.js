@@ -59,3 +59,7 @@ $(window).scroll(function () {
         $("a[href^='#faq']").removeClass('active');
     }
 });
+
+// ajax fetch api
+// link below
+// https://api.thingspeak.com/channels/884462/feeds.json?results=1
