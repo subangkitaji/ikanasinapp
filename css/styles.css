@@ -4,6 +4,8 @@ body {
 
 
 /* monitoringpage */
+
+/* card */
 .wrimagecard {
     margin-top: 0;
     margin-bottom: 1.5rem;
@@ -53,6 +55,7 @@ a.wrimagecard:hover,
     transition: color 0.3s ease;
 }
 
+/* end of card */
 
 /* end of monitoring page */
 
@@ -177,7 +180,7 @@ footer.page-footer.font-small.blue {
 @media (max-width: 768px) {
     .nav-item {
         text-align: center;
-        font-weight: 600;
+        font-weight: 500;
 
     }
 
