@@ -75,7 +75,7 @@
                         </div>
                         <div class="wrimagecard-topimage_title">
                             <h4>Data Sensor Hujan
-                                <div class="pull-right badge">45</div>
+                                <div class="pull-right badge" id="rain"></div>
                             </h4>
                         </div>
                     </a>
@@ -137,6 +137,8 @@
                         $('#data').append(`` + item.field1 + ` &#8451;`);
 
                         $('#data2').append(`` + item.field2 + ` %`);
+
+                        $('#rain').append(`` + item.field4 + ` %`);
                     });
                 }
             });
