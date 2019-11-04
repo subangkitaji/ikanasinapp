@@ -30,56 +30,16 @@
 
         <!-- Data Sensor Terbaru -->
         <div class="row mb-5 mt-5 justify-content-center">
-            <div class="col-md-4 sm-3 xs-12 mb-5">
-                <p>Suhu Terbaru : </p>
-                <h2 id="data"></h2>
-                <div class="wrimagecard wrimagecard-topimage mt-3">
-                    <a href="#">
-                        <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
-                            <center><i class="fa fa-thermometer-quarter" aria-hidden="true"></i></center>
-                        </div>
-                        <div class="wrimagecard-topimage_title">
-                            <h4>Data Dari DHT11
-                                <div class="pull-right badge">temperature</div>
-                            </h4>
-                        </div>
-                    </a>
-                </div>
+            <div class="col-md-4 sm-3 xs-12 mb-5" id="data">
+
             </div>
 
-            <div class="col-md-4 sm-3 xs-12 mb-5">
-                <p>Kelembapan Terbaru :</i></p>
+            <div class="col-md-4 sm-3 xs-12 mb-5" id="data2">
 
-                <h2 id="data2"></h2>
-                <div class="wrimagecard wrimagecard-topimage mt-3">
-                    <a href="#">
-                        <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
-                            <center><i class="fa fa-tint" aria-hidden="true"></i></center>
-                        </div>
-                        <div class="wrimagecard-topimage_title">
-                            <h4>Data Dari DHT11
-                                <div class="pull-right badge">humidity</div>
-                            </h4>
-                        </div>
-                    </a>
-                </div>
             </div>
 
-            <div class="col-md-4 sm-3 xs-12 mb-5">
-                <p id="data">Cuaca Terbaru :</p>
-                <h2>Hujan</h2>
-                <div class="wrimagecard wrimagecard-topimage mt-3">
-                    <a href="#">
-                        <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
-                            <center><i class="fa fa-cloud" aria-hidden="true"></i></center>
-                        </div>
-                        <div class="wrimagecard-topimage_title">
-                            <h4>Data Sensor Hujan
-                                <div class="pull-right badge" id="rain"></div>
-                            </h4>
-                        </div>
-                    </a>
-                </div>
+            <div class="col-md-4 sm-3 xs-12 mb-5" id="rain">
+
             </div>
 
 
@@ -126,7 +86,9 @@
     <script src="js/bootstrap.js">
     </script>
     <script>
-        $(document).ready(function () {
+        get();
+
+        function get() {
             $.ajax({
                 url: 'https://api.thingspeak.com/channels/884462/feeds.json?results=1',
                 type: 'get',
@@ -134,15 +96,74 @@
                 success: function (result) {
                     let data = result.feeds;
                     $.each(data, function (i, item) {
-                        $('#data').append(`` + item.field1 + ` &#8451;`);
 
-                        $('#data2').append(`` + item.field2 + ` %`);
+                        document.getElementById('data').innerHTML = `<p>Suhu Terbaru : </p>
+                        <h2>` + item.field1 + ` &#8451;</h2>
+                        <div class="wrimagecard wrimagecard-topimage mt-3">
+                        <a href="#">
+                        <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
+                            <center><i class="fa fa-thermometer-quarter" aria-hidden="true"></i></center>
+                        </div>
+                        <div class="wrimagecard-topimage_title">
+                            <h4>Data Dari DHT11
+                                <div class="pull-right badge">temperature</div>
+                            </h4>
+                        </div>
+                        </a>
+                        </div>`;
+                        document.getElementById('data2').innerHTML = `<p>Kelembapan Terbaru :</i></p>
+                        <h2>` + item.field2 + ` %</h2>
+                        <div class="wrimagecard wrimagecard-topimage mt-3">
+                        <a href="#">
+                        <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
+                        <center><i class="fa fa-tint" aria-hidden="true"></i></center>
+                        </div>
+                        <div class="wrimagecard-topimage_title">
+                        <h4>Data Dari DHT11
+                        <div class="pull-right badge">humidity</div>
+                        </h4>
+                        </div>
+                        </a>
+                        </div>`;
 
-                        $('#rain').append(`` + item.field4 + ` %`);
+
+                        let rain = item.field4;
+                        if (rain < 50) {
+                            document.getElementById('rain').innerHTML = `<p>Cuaca Terbaru :</p>
+                            <h2>Hujan</h2>
+                            <div class="wrimagecard wrimagecard-topimage mt-3">
+                            <a href="#">
+                                <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
+                                    <center><i class="fa fa-cloud" aria-hidden="true"></i></center>
+                                </div>
+                                <div class="wrimagecard-topimage_title">
+                                    <h4>Data Sensor Hujan
+                                        <div class="pull-right badge">` + item.field4 + `</div>
+                                    </h4>
+                                </div>
+                            </a>
+                            </div>`;
+                        } else {
+                            document.getElementById('rain').innerHTML = `<p>Cuaca Terbaru :</p>
+                        <h2>Terang</h2>
+                        <div class="wrimagecard wrimagecard-topimage mt-3">
+                            <a href="#">
+                                <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
+                                    <center><i class="fa fa-cloud" aria-hidden="true"></i></center>
+                                </div>
+                                <div class="wrimagecard-topimage_title">
+                                    <h4>Data Sensor Hujan
+                                        <div class="pull-right badge">` + item.field4 + `</div>
+                                    </h4>
+                                </div>
+                            </a>
+                        </div>`;
+                        }
                     });
+                    setTimeout(get, 1000);
                 }
             });
-        });
+        }
     </script>
 </body>
 
